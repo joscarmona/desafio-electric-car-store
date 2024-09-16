@@ -7,8 +7,23 @@ body{
 }
 
 /* **************************************************************************************** */
-/* ********************************** MENÚ DE NAVEGACIÓN ********************************** */
+/* ************************************* MOBILE LAYOUT ************************************ */
 /* **************************************************************************************** */
+.layout{
+    height: 100vh;
+    display: grid;
+    grid-template-areas: 
+    "menu-nav"
+    "filtros"
+    "principal"
+    "pie-pagina";
+    grid-template-rows: 12% 15% 10fr 12%;
+    /* justify-items: center; */
+    /* align-items: center; */
+    text-align: center;
+}
+
+/* ************* MENÚ DE NAVEGACIÓN ************ */
 .menu-nav{
     /* border: 1px solid black; */
     grid-area: menu-nav;
@@ -45,10 +60,9 @@ body{
 .menu-nav .fa-solid{
     margin: 10px;
 }
+/* ********************************************* */
 
-/* **************************************************************************************** */
-/* ********************************** FILTROS DE BÚSQUEDA ********************************* */
-/* **************************************************************************************** */
+/* ************ FILTROS DE BÚSQUEDA ************ */
 .filtros{
     /* border: 1px solid black; */
     grid-area: filtros;
@@ -69,10 +83,9 @@ body{
     font-size: 1rem;
     border-radius: 5px;
 }
+/* ********************************************* */
 
-/* **************************************************************************************** */
-/* ************************************** PRINCIPAL *************************************** */
-/* **************************************************************************************** */
+/* ***************** PRINCIPAL ***************** */
 .principal{
     /* border: 1px solid black; */
     grid-area: principal;
@@ -103,6 +116,7 @@ body{
     /* width: 90%; */
     align-items: center;
     /* gap: 0.6rem; */
+    box-shadow: 1px 1px 3px rgb(223, 223, 223);
 }
 
 .producto img{
@@ -142,10 +156,9 @@ body{
     text-decoration: none;
 
 }
+/* ********************************************* */
 
-/* **************************************************************************************** */
-/* ************************************ PIE DE PÁGINA ************************************* */
-/* **************************************************************************************** */
+/* *************** PIE DE PÁGINA *************** */
 .pie-pagina{
     /* border: 1px solid black; */
     grid-area: pie-pagina;
@@ -168,33 +181,122 @@ body{
     font-size: 20px;
     color: white;
 }
+/* ********************************************* */
 
 /* **************************************************************************************** */
-/* ************************************* MOBILE LAYOUT ************************************ */
-/* **************************************************************************************** */
-.layout{
-    height: 100vh;
-    display: grid;
-    grid-template-areas: 
-    "menu-nav"
-    "filtros"
-    "principal"
-    "pie-pagina";
-    grid-template-rows: 12% 15% 10fr 12%;
-    /* justify-items: center; */
-    /* align-items: center; */
-    text-align: center;
-}
-
-/* **************************************************************************************** */
-/* ************************************ DESKTOP LAYOUT ************************************ */
+/* ************************************ TABLET LAYOUT ************************************ */
 /* **************************************************************************************** */
 @media(min-width: 576px){
     .layout{
         /* height: 100vh; */
         grid-template-areas: 
-        "menu-nav-desktop filtros"
-        "menu-nav-desktop principal"
+        "menu-nav-tablet-desktop menu-nav-tablet-desktop"
+        "filtros principal"
+        "pie-pagina pie-pagina";
+        grid-template-columns: 2fr 10fr;
+        grid-template-rows: 1fr 10fr 10%;
+    }
+
+    body{
+        font-size: 0.8rem;
+    }
+
+    /* ************* MENÚ DE NAVEGACIÓN ************ */
+    .menu-nav{
+        /* position: initial;
+        height: auto; */
+        display: none;
+    }
+
+    .menu-nav-tablet-desktop{
+        grid-area: menu-nav-tablet-desktop;
+        background-color: rgb(0, 87, 156);
+        color: white;
+        width: 100%;
+        display: flex;
+        /* flex-direction: column; */
+        align-items: center;
+        justify-content: space-between;
+        /* gap: 1rem; */
+        /* font-size: 0.8rem; */
+
+    }
+
+    .electric-car-ico{
+        display: flex;
+        flex-direction: row;
+        width: 20%;
+        margin: 1rem;
+        /* justify-content: center; */
+    }
+
+    .menu-nav-tablet-desktop .options{
+        display: flex;
+        /* flex-direction: column; */
+        gap: 1rem;
+        margin-top: 0.5rem;
+        margin-right: 3rem;
+
+    }
+
+    .menu-nav-tablet-desktop .options a{
+        color: white;
+        text-decoration: none;
+    }
+    /* ********************************************* */
+
+    /* ************ FILTROS DE BÚSQUEDA ************ */
+    .filtros{
+        justify-content: initial;
+        align-items: center;
+        padding-top: 1rem;
+        gap: 1rem;
+    }
+
+    .filtros select{
+        font-size: 0.8rem;
+        width: 60%;
+        height: 6%;
+    }
+    /* ********************************************* */
+
+    /* ***************** PRINCIPAL ***************** */
+    .principal{
+        padding: 1rem 1.5rem 1rem 1.5rem;
+        align-items: center;
+    }
+
+    .galeria-productos{
+        flex-direction: row;
+        flex-wrap: wrap;
+        /* display: none; */
+        align-items: center;
+        justify-content: space-around;
+        height: 90%;
+
+    }
+
+    .producto{
+        width: 35%;
+        box-shadow: 1px 1px 3px rgb(223, 223, 223);
+    }
+
+    .producto img{
+        width: 80%;
+    }
+    /* ********************************************* */
+}
+
+
+/* **************************************************************************************** */
+/* ************************************ DESKTOP LAYOUT ************************************ */
+/* **************************************************************************************** */
+@media(min-width: 992px){
+    .layout{
+        /* height: 100vh; */
+        grid-template-areas: 
+        "menu-nav-tablet-desktop filtros"
+        "menu-nav-tablet-desktop principal"
         "pie-pagina principal";
         grid-template-columns: 2fr 10fr;
         grid-template-rows: 2fr 10fr 3fr;
@@ -211,14 +313,15 @@ body{
         display: none;
     }
 
-    .menu-nav-desktop{
-        grid-area: menu-nav-desktop;
+    .menu-nav-tablet-desktop{
+        grid-area: menu-nav-tablet-desktop;
         background-color: rgb(0, 87, 156);
         color: white;
         width: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: initial;
         /* gap: 1rem; */
         /* font-size: 0.8rem; */
 
@@ -232,7 +335,7 @@ body{
         justify-content: center;
     }
 
-    .menu-nav-desktop .options{
+    .menu-nav-tablet-desktop .options{
         display: flex;
         flex-direction: column;
         gap: 1rem;
@@ -240,15 +343,22 @@ body{
 
     }
 
-    .menu-nav-desktop .options a{
+    .menu-nav-tablet-desktop .options a{
         color: white;
         text-decoration: none;
     }
     /* ********************************************* */
 
     /* ************ FILTROS DE BÚSQUEDA ************ */
+    .filtros{
+        justify-content: center;
+        gap: initial;
+    }
+    
     .filtros select{
         font-size: 0.8rem;
+        width: 80%;
+        height: 40%;
     }
     /* ********************************************* */
 
@@ -276,9 +386,4 @@ body{
     .producto img{
         width: 80%;
     }
-    /* ********************************************* */
-
-    /* *************** PIE DE PÁGINA *************** */
-
-    /* ********************************************* */
 }
